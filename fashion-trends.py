@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load model and columns
-model = joblib.load("model.pkl")
-model_columns = joblib.load("model_columns.pkl")
-df = pd.read_csv("data/Fashion_Retail_Sales.csv")  # adjust path if needed
+pd.read_csv("Fashion_Retail_Sales.csv")
+joblib.load("model.pkl")
+joblib.load("model_columns.pkl")
 
 st.set_page_config(page_title="Fashion Sales Forecast", layout="wide")
 
