@@ -1,6 +1,6 @@
 # Fashion Retail Sales Forecasting
 
-This project is a regression-based AI tool that predicts purchase amounts in USD based on fashion retail transaction data. It was built as part of a graduate course on applied machine learning and deployed as a live web app using Streamlit.
+This project is a regression-based AI tool that predicts purchase amounts in USD based on fashion retail transaction data. It was built on applied machine learning and deployed as a live web app using Streamlit.
 
 ## Project Overview
 
