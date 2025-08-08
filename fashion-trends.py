@@ -44,16 +44,15 @@ with tabs[0]:
         with col2:
             rating = st.slider("Review Rating", min_value=1.0, max_value=5.0, step=0.1, value=4.0, help="Rate the item (1 to 5)")
 
-        submit = st.form_submit_button("Predict")
+        submitted = st.form_submit_button("Predict")
 
-    if submit:
-        # One-hot encode the input
+    if submitted:
+        # One-hot encode user input
         input_dict = {
             "Review Rating": rating,
             f"Item Purchased_{item}": 1,
             f"Payment Method_{payment}": 1
         }
-
         input_df = pd.DataFrame([{col: input_dict.get(col, 0) for col in model_columns}])
 
         # Prediction
