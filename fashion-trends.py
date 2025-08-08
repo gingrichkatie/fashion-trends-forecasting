@@ -75,5 +75,5 @@ with tabs[1]:
     metrics = pd.DataFrame({
         "Metric": ["MAE", "RMSE", "R²"],
         "Linear Regression": [13.7, 18.2, 0.51],
-    }
+        )}
 
