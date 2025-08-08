@@ -63,7 +63,7 @@ with tabs[0]:
 
         st.subheader("Prediction Results")
         st.write(f"Estimated Purchase Amount: ${prediction:,.2f}")
-        st.write(f"95% Confidence Interval: ${lower:,.2f} to ${upper:,.2f}")
+        st.write("95% Confidence Interval: ${:,.2f} to ${:,.2f}".format(lower, upper))
 
 # ================================
 # Tab 2: Model Performance
