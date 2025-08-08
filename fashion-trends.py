@@ -75,5 +75,37 @@ with tabs[1]:
     metrics = pd.DataFrame({
         "Metric": ["MAE", "RMSE", "R²"],
         "Linear Regression": [13.7, 18.2, 0.51],
-        )}
+        "Random Forest": [9.2, 12.4, 0.71]
+    })
 
+    st.dataframe(metrics.set_index("Metric"))
+
+    melted = metrics.melt(id_vars="Metric", var_name="Model", value_name="Score")
+    fig, ax = plt.subplots()
+    sns.barplot(data=melted, x="Metric", y="Score", hue="Model", ax=ax)
+    st.pyplot(fig)
+
+# ================================
+# Tab 3: Data Explorer
+# ================================
+with tabs[2]:
+    st.title("Data Exploration")
+
+    with st.expander("Filters"):
+        selected_items = st.multiselect("Filter by Item", df["Item Purchased"].unique(), default=list(df["Item Purchased"].unique()))
+        selected_payments = st.multiselect("Filter by Payment Method", df["Payment Method"].unique(), default=list(df["Payment Method"].unique()))
+
+    filtered_df = df[df["Item Purchased"].isin(selected_items) & df["Payment Method"].isin(selected_payments)]
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("Average Purchase Amount by Item")
+        avg = filtered_df.groupby("Item Purchased")["Purchase Amount (USD)"].mean()
+        st.bar_chart(avg)
+
+    with col2:
+        st.subheader("Review Rating Distribution")
+        fig, ax = plt.subplots()
+        sns.histplot(filtered_df["Review Rating"], bins=10, kde=True, ax=ax)
+        st.pyplot(fig)
