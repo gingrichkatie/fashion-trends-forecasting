@@ -38,7 +38,7 @@ The app accepts user-defined inputs (like item type, rating, and payment method)
 - Use the "Data Explorer" tab to explore patterns and trends in the dataset
 
 ## Files Included
-- streamlit_app.py – Streamlit app interface
+- fashion-trends.py – Streamlit app interface
 - model.pkl – Trained Random Forest model
 - model_columns.pkl – List of model input features
 - Fashion_Retail_Sales.csv – Raw dataset
